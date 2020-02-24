@@ -1,6 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
+import VueResource from 'vue-resource';
 import store from './store'
+import './styles/styles.scss'
+
+Vue.use(VueResource)
+
+Vue.http.options.root = 'https://frontend-test-assignment-api.abz.agency/api/v1/'
+
 
 Vue.config.productionTip = false
 
