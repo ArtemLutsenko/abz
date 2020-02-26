@@ -11,6 +11,7 @@ header {
   left: 50%;
   transform: translateX(-50%);
   background-color: $color-bg-primary;
+  z-index: 100;
 
   .header {
     display: flex;
@@ -66,7 +67,6 @@ header {
       margin-top: 1.7rem;
       line-height: 2.4rem;
     }
-    
   }
 }
 //////////////////////////////////////////about-me
@@ -173,7 +173,7 @@ header {
         margin: 0 auto;
       }
       .user-name {
-        margin-top: .6rem;
+        margin-top: 0.6rem;
         font-size: 2.4rem;
         font-weight: 600;
         text-transform: capitalize;
@@ -197,7 +197,7 @@ header {
       .user-email:hover:after {
         content: attr(data-text);
         display: inline-block;
-        position: absolute;       
+        position: absolute;
         left: 3rem;
         bottom: -3rem;
         z-index: 30;
@@ -211,22 +211,19 @@ header {
       }
     }
   }
-  .users-button{
+  .users-button {
     margin: 2.55rem auto;
     color: red;
-      
   }
 }
 //////////form
 
-.form-section{
-
-
-  .form-container{
+.form-section {
+  .form-container {
     margin: 30rem auto 0;
     width: 51rem;
   }
-  h2{
+  h2 {
     margin-top: 10.9rem;
     font-size: 5rem;
     line-height: 5.4rem;
@@ -234,16 +231,206 @@ header {
     text-align: center;
     margin-bottom: 1.9rem;
   }
-  p{
+  p {
     text-align: center;
     line-height: 2.3rem;
   }
+  form {
+    margin: 1.9rem auto 0;
+    width: 47rem;
+    p {
+      text-align: left;
+    }
+
+    .phone-number-clar {
+      font-size: 1.2rem;
+      display: block;
+      margin-top: -1rem;
+      margin-left: 0.3rem;
+    }
+    .position-header {
+      font-size: 1.5rem;
+      display: block;
+      margin-top: 1.5rem;
+      margin-left: 0.3rem;
+    }
+
+    .photo-header {
+      display: block;
+      margin-top: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .radio {
+      margin: 14px 0;
+      display: block;
+      cursor: pointer;
+      input {
+        display: none;
+        & + span {
+          line-height: $radioSize;
+          height: $radioSize;
+          padding-left: $radioSize;
+          display: block;
+          position: relative;
+          &:not(:empty) {
+            padding-left: $radioSize + 8;
+          }
+          &:before,
+          &:after {
+            content: "";
+            width: $radioSize;
+            height: $radioSize;
+            display: block;
+            border-radius: 50%;
+            left: 0;
+            top: 0;
+            position: absolute;
+          }
+          &:before {
+            background: $radioBorder;
+            transition: background 0.2s ease,
+              transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2);
+          }
+          &:after {
+            background: #fff;
+            transform: scale(0.78);
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.4);
+          }
+        }
+        &:checked + span {
+          &:before {
+            transform: scale(1.04);
+            background: $radioActive;
+          }
+          &:after {
+            transform: scale(0.4);
+            transition: transform 0.3s ease;
+          }
+        }
+      }
+      &:hover {
+        input {
+          & + span {
+            &:before {
+              transform: scale(0.92);
+            }
+            &:after {
+              transform: scale(0.74);
+            }
+          }
+          &:checked + span {
+            &:after {
+              transform: scale(0.4);
+            }
+          }
+        }
+      }
+    }
+    input {
+      outline: none;
+    }
+    
+
+    input[type="text"],
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 10px 16px;
+      margin-bottom: 1.3rem;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .file-upload {
+      width: 100%;
+      height: 3.5rem;
+      margin: 0 auto 1rem;
+      display: flex;
+      justify-content: space-between;
+      text-align: right;
+      align-items: center;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .file-upload__button {
+      height: 3.7rem;
+      text-align: right;
+      color: rgb(53, 51, 51);
+      margin-right: 1.5rem;
+      border-left: 1px solid #ccc;
+      padding-left: 1.5rem;
+    }
+
+    .file-upload__text {
+      padding-left: 1rem;
+      text-align: left;
+      font-weight: 400;
+      white-space: nowrap;
+      color: rgb(161, 158, 158);
+      overflow: hidden;
+    }
+    .validation-error{
+      height: 15px;
+      margin-top: -15px;
+      color: red;
+      font-size: 13px;
+    }
+  }
+
+  .form input:focus {
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(6, 155, 241, 1);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(6, 155, 241, 1);
+    box-shadow: 0px 0px 3px 0px rgba(6, 155, 241, 1);
+    border: 1px solid #069bf1;
+  }
+
+  .form input.invalid {
+    border: solid 1px red;
+    outline: none;
+    color: red;
+  }
+  .form input.invalid:focus {
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(255, 0, 0, 1);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(255, 0, 0, 1);
+    box-shadow: 0px 0px 3px 0px rgba(255, 0, 0, 1);
+  }
+
+  .file-upload.invalid{
+    border: 1px solid red;
+
+    .file-upload__button{
+      border-left: 1px solid red;
+      overflow: hidden;
+    }
+  }
+
 }
 
+/////////////////////////footer
 
+footer {
+  margin-top: 15rem;
+  .line {
+    width: 100%;
+    height: 5px;
+    border-bottom: 0.1rem solid #ccc;
+    margin-bottom: 1.8rem;
+  }
+  p {
+    text-align: center;
+  }
+}
 
-
-/////////////////////////
+/////////////////////////////others
 
 .button {
   width: 21rem;
@@ -260,8 +447,7 @@ header {
     color: $color-bg-primary;
     text-decoration: none;
   }
-
 }
-.hidden{
+.hidden {
   display: none;
 }

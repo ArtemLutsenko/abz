@@ -21,10 +21,10 @@ const mutations = {
   SET_USERS(state, users) {
     state.users = [...state.users, ...users];
     state.users.sort((a, b) =>{
-        if(a.registration_timestamp > b.registration_timestamp){
+        if(a.registration_timestamp < b.registration_timestamp){
             return 1
         }
-        if(a.registration_timestamp < b.registration_timestamp){
+        if(a.registration_timestamp > b.registration_timestamp){
             return -1
         }
         return 0
